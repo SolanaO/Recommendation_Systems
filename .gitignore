@@ -2,7 +2,9 @@
 # work files folder
 aux_p3/
 # pickled files
-*.p, *.pkl, *.pickle
+*.p
+*.pkl
+*.pickle
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
