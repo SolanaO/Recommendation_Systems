@@ -20415,9 +20415,17 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>The test accuracy decreases while the train accuracy increases with the number of latent features. The two accuracy curves intersect for 100 latent features. The shapes of the two curves indicate overfitting. THe more latent features we use the more overfitted the model is. This is not surprising as the test set is quite small and thus easy to overfit.</strong></p>
-<p><strong>One way to improve the results is to increase the size of the test set by collecting data from more users, which would increase the size of the <code>user_item_test</code> matrix and improve the test accuracy.</strong></p>
-<p><strong>Another approach is to expand the model with a metadata based recommender. This would involve taking into account more features, some of which are available in the collected data. For example one could add keywords to the articles, or count how many times users interact with a given article.</strong></p>
+<p><strong>The test accuracy decreases while the train accuracy increases with the number of latent features. The two accuracy curves intersect for 100 latent features. The shapes of the two curves indicate overfitting. The more latent features we use the more overfitted the model is. This is not surprising as the test set is quite small and thus easy to overfit.</strong></p>
+<p><strong>The following steps can be taken to improve the recommendation engine:</strong></p>
+<ul>
+<li><p><strong>Design an A/B test to compare the warm users (those who receive content and collaborative filtering recommendations) with the cold users (the new users who are recommended the most popular articles only).</strong></p>
+</li>
+<li><p><strong>Given how imbalanced the data is, measures for the models's performance such as  F1 score and ROC/AUC, would provide a slight improvement in our estimations. Also we could take into consideration the number of unique articles a user interacts with.</strong></p>
+</li>
+<li><p><strong>Use different algorithms (such as the multi-arm bandit) for the cold user problem.</strong></p>
+</li>
+</ul>
+<p><strong>However the efficiency of any method is still affected by the data imbalance and the best way to improve the results is to increase the size of the test set by collecting data from more users, after which we could implement the suggestions mentioned above.</strong></p>
 
 </div>
 </div>
