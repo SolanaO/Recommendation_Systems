@@ -82,6 +82,9 @@ def user_based_data():
     # Create a column that records how many unique articles the user accessed
     articles_per_user['unique_articles_count'] = [len(set(x)) for x in articles_per_user.article_id]
 
+    # Rename column article_id
+    articles_per_user.rename(columns={'article_id': 'viewed_articles'}, inplace=True)
+
     return articles_per_user
 
 
